@@ -6,19 +6,36 @@ source("setup.R")
 
 #### ************************* Population Structure ************************************ ####
 
-#Overall population
-persons_ps <- PP_KIR20 |> 
+#Overall population by division
+persons_ps_div <- PP_KIR20 |> 
+  group_by(divID) |> 
+  summarise(totpop = n())
+
+persons_ps_div <- as.data.table(persons_ps_div)
+
+persons_ps_div_cube <- cube(persons_ps_div, j = round(sum(totpop),0), by = c("divID"), id = FALSE)
+persons_ps_div_cube <- persons_ps_div_cube[!is.na(persons_ps_div_cube$divID)]
+
+persons_ps_div_cube <- persons_ps_div_cube |>
+  mutate(INDICATOR = "PPCNT") |>
+  rename(GEO_PICT = divID, OBS_VALUE = V1)
+
+#Overall population by island
+persons_ps_isl <- PP_KIR20 |> 
   group_by(islID) |> 
   summarise(totpop = n())
 
-persons_ps <- as.data.table(persons_ps)
+persons_ps_isl <- as.data.table(persons_ps_isl)
 
-persons_ps_cube <- cube(persons_ps, j = round(sum(totpop),0), by = c("islID"), id = FALSE)
+persons_ps_isl_cube <- cube(persons_ps_isl, j = round(sum(totpop),0), by = c("islID"), id = FALSE)
 
-persons_ps_cube <- persons_ps_cube |>
+persons_ps_isl_cube <- persons_ps_isl_cube |>
   mutate(
     islID = ifelse(is.na(islID), "KI", islID),
-    INDICATOR = "PPCNT")
+    INDICATOR = "PPCNT") |>
+  rename(GEO_PICT = islID, OBS_VALUE = V1)
+
+persons_ps_cube <- rbind(persons_ps_div_cube, persons_ps_isl_cube)
 
 
 #Population less than 15 years old
@@ -35,6 +52,23 @@ persons_ps_15less_cube <- persons_ps_15less_cube |>
   mutate(
     islID = ifelse(is.na(islID), "KI", islID),
     INDICATOR = "LSS15CNT")
+
+
+#Population less than 15 years old
+persons_ps_15less <- PP_KIR20 |> 
+  filter(age < 15) |>
+  group_by(islID) |> 
+  summarise(totpop = n())
+
+persons_ps_15less <- as.data.table(persons_ps_15less)
+
+persons_ps_15less_cube <- cube(persons_ps_15less, j = round(sum(totpop),0), by = c("islID"), id = FALSE)
+
+persons_ps_15less_cube <- persons_ps_15less_cube |>
+  mutate(
+    islID = ifelse(is.na(islID), "KI", islID),
+    INDICATOR = "LSS15CNT")
+
 
 
 #Population less than 15-24 years old

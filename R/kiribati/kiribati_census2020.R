@@ -3,7 +3,7 @@ repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
 setwd(repository) # Required for file.choose() function
 
 # Load the general R functions
-source("../setup.R")
+source("../functions/setup.R")
 
 #Import the data from the census
 
