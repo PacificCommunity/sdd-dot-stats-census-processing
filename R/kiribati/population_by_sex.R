@@ -437,7 +437,6 @@ unemployment_isl_cube <- unemployment_isl_cube |>
 unemployment_cube <- rbind(unemployment_div_cube, unemployment_isl_cube)
 
 
-
 #Combine all the tables and finalise the table
 combine_summary <- rbind(persons_cube, 
                          persons_ph_cube, 
@@ -459,3 +458,9 @@ combine_summary <- combine_summary |>
 
 combine_summary <- combine_summary |>
   select(FREQ, TIME_PERIOD, GEO_PICT, INDICATOR, SEX, OBS_VALUE, UNIT_MEASUREE, UNIT_MULT, DATA_SOURCE, OBS_STATUS, OBS_COMMENT, CONF_STATUS)
+
+#Write final data to output folder
+
+write.csv(combine_summary, "../../output/population_by_sex.csv", row.names = FALSE)
+
+
