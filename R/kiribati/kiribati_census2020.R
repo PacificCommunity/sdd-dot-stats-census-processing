@@ -93,4 +93,16 @@ PP_KIR20 <- PP_KIR20 %>%
     age <= 59 ~ "Y55T59",
     age <= 64 ~ "Y60T64",
     TRUE ~ "Y65T999"
-  ))
+  ),
+  
+  household_type = case_when(
+    dwelling_type == "Single housing unit (Private household)" ~ "PRVT",
+    dwelling_type == "Other institutions (specify)" ~ "OTHR",
+    TRUE ~ "INST"
+  ),
+  
+  citizen_type = case_when(
+    citizenship == 'Native-born citizen (I-Kiribati)' ~ "NATIVE",
+    TRUE ~ "OTHER"
+  )
+  )

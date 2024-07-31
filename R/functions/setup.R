@@ -16,6 +16,3 @@ library(spcstyle)
 `%not in%` <- Negate(`%in%`)
 
 user <- Sys.info()['login']
-
-# Load the general R functions
-source(file.path(repository, "R", "functions.R"))

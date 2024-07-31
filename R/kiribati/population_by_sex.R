@@ -2,7 +2,7 @@
 repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
 setwd(repository)
 
-source("setup.R")
+source("../functions/setup.R")
 
 #### ************************** Household tables *********************************************** ####
 
