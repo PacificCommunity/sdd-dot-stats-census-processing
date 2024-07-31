@@ -60,3 +60,7 @@ combine_table <- combine_table |>
 combine_table <- combine_table |>
   select(FREQ, TIME_PERIOD, GEO_PICT, INDICATOR, URBANIZATION, HOUSEHOLD_TYPE, CITIZEN_TYPE,  AGE, SEX, OBS_VALUE, UNIT_MEASUREE, UNIT_MULT, DATA_SOURCE, OBS_STATUS, OBS_COMMENT, CONF_STATUS)
 
+#Write final table to csv file
+write.csv(combine_table, "../../output/population_by_age.csv", row.names = FALSE)
+
+
