@@ -94,6 +94,16 @@ PP_KIR20 <- PP_KIR20 %>%
     age <= 64 ~ "Y60T64",
     TRUE ~ "Y65T999"
   ),
+  age_grp10yr = case_when(
+    age <= 9 ~ "Y00T09",
+    age <= 19 ~ "Y10T19",
+    age <= 29 ~ "Y20T29",
+    age <= 39 ~ "Y30T39",
+    age <= 49 ~ "Y40T49",
+    age <= 59 ~ "Y50T59",
+    age <= 69 ~ "Y60T69",
+    TRUE ~ "Y70T999"
+  ),
   
   household_type = case_when(
     dwelling_type == "Single housing unit (Private household)" ~ "PRVT",
