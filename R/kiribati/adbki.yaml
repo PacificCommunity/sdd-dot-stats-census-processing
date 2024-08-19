@@ -1,0 +1,62 @@
+rules:
+- expr: FREQ %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_COM_FREQ", version = "1.0")
+  name: CL_FREQ
+  label: ''
+  description: Code list from DSD_ADBKI::FREQ 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+- expr: GEO_PICT %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_COM_GEO_PICT", version = "2.0")
+  name: CL_GEO_PICT
+  label: ''
+  description: Code list from DSD_ADBKI::GEO_PICT 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+- expr: INDICATOR %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_ADBKI_INDICATORS", version = "1.0")
+  name: CL_INDICATOR
+  label: ''
+  description: Code list from DSD_ADBKI::INDICATOR 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+- expr: UNIT_MEASURE %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_COM_UNIT_MEASURE", version = "1.0")
+  name: CL_UNIT_MEASURE
+  label: ''
+  description: Code list from DSD_ADBKI::UNIT_MEASURE 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+- expr: UNIT_MULT %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_COM_UNIT_MULT", version = "1.0")
+  name: CL_UNIT_MULT
+  label: ''
+  description: Code list from DSD_ADBKI::UNIT_MULT 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+- expr: OBS_SATUS %in% sdmx_codelist(endpoint = "https://stats-sdmx-disseminate.pacificdata.org/rest",
+    agency_id = "SPC", resource_id = "CL_COM_OBS_STATUS", version = "1.0")
+  name: CL_OBS_SATUS
+  label: ''
+  description: Code list from DSD_ADBKI::OBS_SATUS 1.0
+  created: 2024-08-07 15:14:25.815766
+  origin: https://stats-sdmx-disseminate.pacificdata.org/rest/datastructure/SPC/DSD_ADBKI/1.0
+  meta:
+    language: validate 1.1.5
+    severity: error
+
