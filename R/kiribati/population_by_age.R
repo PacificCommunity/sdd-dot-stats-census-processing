@@ -62,5 +62,3 @@ combine_table <- combine_table |>
 
 #Write final table to csv file
 write.csv(combine_table, "../../output/population_by_age.csv", row.names = FALSE)
-
-
