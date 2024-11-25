@@ -1,17 +1,10 @@
-#Load libraries
-
-#library(dplyr)
-#library(data.table)
-
 #Map working directories
-
 repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
 setwd(repository)
 
 # Load the general R functions
 source("../functions/setup.R")
 source("kiribati_census2020.R")
-
 
 # ******************************* Population processing *****************************************************
 
@@ -37,7 +30,6 @@ pop_dat_cube <- pop_dat_cube |>
          )
 
 #Population by province
-
 pop_prov <- PP_KIR20 |>
   group_by(divID, age, sex) |>
   summarise(OBS_VALUE = n())
@@ -59,7 +51,6 @@ pop_prov_dat_cube <- pop_prov_dat_cube |>
   )
 
 #Population by island
-
 pop_isl <- PP_KIR20 |>
   group_by(islID, age, sex) |>
   summarise(OBS_VALUE = n())
@@ -82,7 +73,6 @@ pop_isl_dat_cube <- pop_isl_dat_cube |>
 
 
 #Rbind population tables
-
 pop_final <- rbind(pop_dat_cube, pop_prov_dat_cube, pop_isl_dat_cube)
 
 
@@ -130,7 +120,6 @@ population_structure <- population_structure |>
 
 
 #Reorder the fields in the proper order
-
 population_structure <- population_structure |>
   select(FREQ,
          TIME_PERIOD,
@@ -149,31 +138,4 @@ population_structure <- population_structure |>
          )
 
 #Write the table to csv file in output folder
-
 write.csv(population_structure, "../../output/population_structure.csv", row.names = FALSE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
