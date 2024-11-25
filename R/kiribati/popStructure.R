@@ -1,12 +1,16 @@
 #Load libraries
 
-library(dplyr)
-library(data.table)
+#library(dplyr)
+#library(data.table)
 
 #Map working directories
 
 repository <- file.path(dirname(rstudioapi::getSourceEditorContext()$path))
 setwd(repository)
+
+# Load the general R functions
+source("../functions/setup.R")
+source("kiribati_census2020.R")
 
 
 # ******************************* Population processing *****************************************************
