@@ -20,6 +20,6 @@
 .Rproj.user/
 
 # Ignore temporal files produced by excel
-data/*
+data/**
 image/*.pptx
-output/*
+output/**
