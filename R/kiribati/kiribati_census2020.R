@@ -44,16 +44,19 @@ KI_island <- data.frame(
 
 KI_isl <- data.frame(
   islandID = c("KI-1", "KI-2", "KI-3", "KI-4", "KI-5", "KI-6", "KI-7", "KI-8", "KI-9", "KI-10", "KI-11", "KI-12",
-               "KI-13", "KI-14", "KI-15", "KI-16", "KI-17", "KI-18", "KI-19", "KI-20", "KI-21", "KI-22", "KI-23"
+               "KI-13", "KI-14", "KI-15", "KI-16", "KI-17", "KI-18", "KI-19", "KI-20", "KI-21", "KI-22", "KI-23", "KI-24"
                ),
-  islandName = c("Banaba", "Makin", "Butaritari", "Marakei", "Abaiang", "North Tarawa", "South Tarawa", "" )
+  island = c("Banaba", "Makin", "Butaritari", "Marakei", "Abaiang", "North Tarawa", "South Tarawa", "Maiana", "Abemama", "Kuria", "Aranuka", "Nonouti",
+                 "North Tabiteuea", "South Tabiteuea", "Beru", "Nikunau", "Onotoa", "Tamana", "Arorae", "Teeraina", "Tabuaeran", "Kiritimati", "Kanton", "Betio"
+                 )
 )
 
 
-
 PP_KIR20$country <- "KI"
-PP_KIR20 <- merge(PP_KIR20, KI_div, by = "division")
-PP_KIR20 <- merge(PP_KIR20, KI_island, by="island")
+PP_KIR20 <- merge(PP_KIR20, KI_div, by = "division", all = TRUE)
+PP_KIR20 <- merge(PP_KIR20, KI_island, by="island", all = TRUE)
+PP_KIR20 <- merge(PP_KIR20, KI_isl, by ="island", all = TRUE)
+
 
 PP_KIR20_HH <- PP_KIR20 %>%
   group_by(interview__key, occupancy, country, division, island, village, ea_number, urbrur, divID, islID) %>%
